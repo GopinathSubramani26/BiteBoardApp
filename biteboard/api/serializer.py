@@ -7,7 +7,7 @@ class UserSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = get_user_model()
-        fields = ['first_name', 'last_name', 'email', 'password', 'confirm_password', 'pin']
+        fields = ['first_name', 'last_name', 'email', 'password', 'confirm_password', 'pin', 'username']
 
     def validate(self, data):
         # Validate that passwords match
@@ -27,6 +27,7 @@ class UserSerializer(serializers.ModelSerializer):
         
         user = get_user_model().objects.create_user(
             email=validated_data['email'],
+            username= validated_data['username'],
             password=validated_data['password'],
             first_name=validated_data['first_name'],
             last_name=validated_data['last_name'],
