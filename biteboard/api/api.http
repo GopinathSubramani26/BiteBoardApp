@@ -1,0 +1,29 @@
+### Obtain JWT Token (Login)
+POST http://localhost:8000/api/token/
+Content-Type: application/json
+
+{
+  "email": "john@example.com",
+  "password": "SecurePassword123"
+}
+
+### Register User (Protected Endpoint)
+POST http://localhost:8000/api/register/
+# Authorization: Bearer {{jwt_token}}
+Content-Type: application/json
+
+{
+  "first_name": "John",
+  "last_name": "Doe",
+  "email": "john.doe@example.com",
+  "password": "password123",
+  "confirm_password": "password123"
+}
+
+### Refresh JWT Token
+POST http://localhost:8000/api/token/refresh/
+Content-Type: application/json
+
+{
+  "refresh": "{{refresh_token}}"
+}
