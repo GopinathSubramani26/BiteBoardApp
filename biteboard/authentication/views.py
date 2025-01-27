@@ -6,7 +6,7 @@ from rest_framework import status
 from .serializer import UserSerializer
 
 @api_view(['POST'])
-@permission_classes([IsAuthenticated])  # Require JWT authentication
+# @permission_classes([IsAuthenticated])  # Require JWT authentication
 def register(request):
     serializer = UserSerializer(data=request.data)
     if serializer.is_valid():
