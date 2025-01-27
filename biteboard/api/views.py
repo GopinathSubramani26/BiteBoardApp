@@ -1,10 +1,7 @@
 
 from rest_framework.decorators import api_view
-from django.contrib.auth.models import User
-from django.contrib.auth import get_user_model
-from rest_framework import serializers, status
 from rest_framework.response import Response
-from django.urls import path
+from rest_framework import status
 from .serializer import UserSerializer
 
 @api_view(['POST'])
